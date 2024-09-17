@@ -42,10 +42,68 @@
                 </li>                
             </ul>
         </nav>
-        <div id="img-header" >
-            <img src="./img/logo_header.png" alt="hamburguer_fake">
-        </div>
+        <box id="img-header" >
+            <img src="./img/logo_burguer.png" alt="logo_burguer">
+        </box>
     </header>
+
+    <section id="parafrasear">
+        <div id="parafrasear-frase">
+            O melhor sanduíche sem hamburguer da cidade! 
+        </div>
+        <div id="img-parafrasear">
+           <img src="./img/burguer.png " alt="burguer">
+        </div>
+    </section>
+
+
+
+    <div class="carrosel">
+            <div class="nav nav-left">
+                <button><</button>
+            </div>
+            <div class="carossel-content">
+                <div class="slide">
+                    </div>
+                    <div class="slide">
+                    </div>
+                    <div class="slide">
+                    </div>
+                    <div class="slide">
+                    </div>
+                    <div class="slide">
+                    </div>
+            </div>
+
+            <div class="nav nav-right">
+                <button>></button>
+            </div>
+        </div>
+    </div>
+
+    <section id="sec-carrossel">
+        <div class="slide">
+            <div class="conteudo-produto">
+                <div class="box-img-produto">
+                    <img src="./img/hambuguer1.png" alt="Hamburguer 1">
+                </div>
+                <div class="info-produto">
+                    <h2>Hamburguer</h2>
+                    <span>R$1000 dolarés em barra de ouro</span>
+                </div>
+                <div class="box-cta">
+                    <button class="cta-produto">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    </body>
+
     <section id="sec-formulario">
         <form id="formulario">
             <div> 
@@ -61,8 +119,12 @@
             </div>
         </form>
     </section>
-</body>
+
+
+
 <script>
+    document.addEventListener('DOMContentLoaded', function(){
+            
     var valorUsuario;
 
     var btnHamburguer = document.getElementById("btn-hamburguer");
@@ -73,6 +135,7 @@
 
         navHeader.classList.toggle('ativo');
     });
+});
 
     var btnVerSenha = document.getElementById('ver-senha');
     var inputSenha = document.getElementById('senha');
@@ -100,9 +163,181 @@
         if (valorUsuario.lenght < 3){
             alert("Usuario incorreto");
         }
-    });
+    })
 
+    var carrosel = document.querySAelector('carrossel');
+    var carrossel = document.querySelector('.carrossel-content');
+    var slides = document.querySelectorAll('.slide');
+    var arryOfSlides = Array.protype.slice.call(slides);
+    var carrosselDisplaying;
+    var screenSize;
+    setScreenSize();
+    var lengthOfSlides;
+
+    function addClone(){
+        var lastSlide = carrosselContent.lastElementChild.cloneNode(true);
+
+        lastSlide.style.left = (-lengthOfSlides) + 'px';
+        carrosselContent.insertBefore(lastSlide, carrosselContent.firstChild)
+    }
+
+    function removeClone(){
+        var firstSlide = carrosselContent.firstChild;
+        firstSlide.parentNode.removeChild(firstSlide);
+    }
+
+    function moveSlideRight(){
+        var slides = document.querySelectorAll('.slide');
+        var slideArray = Array.prototype.slice.call(slides);
+        var width = 0;
+        slideArray.forEach(function(elemento, i){
+            elemento.style.left = width + 'px';
+            width += lenghtOfSlides;
+        });
+        addClone();
+    }
+    moveSlideRight();
+
+    function moveSlideLeft(){
+        var slides = document.querySelectorAll('.slide');
+        var slideArray = Array.prototype.slice.call(slides);
+        slideArray = slideArray.reverse();
+        var maxWidth = (slideArray.length - 1) * lengthOfSlides;
+
+        slideArray.forEach(function(elemento, i){
+            maxWidth -= lenghtOfSlides;
+            elemento.style.left = maxWidth = 'px';
+        })
+    }
+
+    windows.addEventListener('resize', setScreenSize);
+
+    function setScreenSize(){
+        if(window.innerWidth >= 500){
+            carrosselDisplaying = 3;
+        } else if(window.innerWidth >= 300){
+            carrosselDisplaying = 2;
+        } else{
+            carrosselDisplaying = 1;
+        }
+        getScreenSize();
+    }
+
+    function getScreenSize(){
+        var slides = document.querySelectorALl('.slide');
+        var slideArray = Array.prototype.slice.call(slides);
+        lenghtOfSlides = (carrosel.offsetWidth / carrosselDisplaying);
+        var initialWidth = -lenghtOfSlides;
+
+        slideArray.forEach(function(elemento){
+            elemento.style.width = lenghtOfSlides + 'px';
+            elemento.style.left = initialWidth + 'px';
+            initialWidth += lenghtOfSlides;
+        })
+    }
+
+    var rightNav = document.querySelector('.nav-right');
+    rightNav.addEventListenner('click', moveLeft);
+
+    var moving = trye;
+
+    function moveRight(){
+        if(moving){
+            moving = false;
+            var lastSlide = carrosselContent.lastElementChild;
+            lastSlice.parentNode.removeChild(lastSlide);
+            carrosselContent.insertBefore(lastSlide, carrosselContent.firstChild);
+            removeClone();
+            var firstSlide = carrosselContent.firstElementChild;
+            firstSlide.addEventListener('transtioned', activateAgain);
+            moveSlideRight();
+        }
+    }
+
+    function activateAgain(){
+        var firstSlide = carrosselContent.firstElementChild;
+        moving = true;
+        firstSlide.removeEventListener('transitioned', activateAgain);
+    }
+
+    var leftNav = document.querySelector('.nav-left');
+    leftNav.addEventListener('click', moveRight);
+
+    function moveLeft(){
+        if(moving){
+            moving= false;
+            removeClone();
+            var firstSlide = carrosselContent.firstElementChild.ArrayfirstSlide.addEventListener('transitioned', replaceToEnd);
+            moveSlideLeft();
+        }
+    }
+
+    function replaceToEnd(){
+        var firstSlide = carrosselContent.firstElementChild;
+        firstSlide.parentNode.removeChild(firstSlide);
+        carrosselContent.appendChild(firstSlide);
+        firstSlide.style.left = ((arrayOfSlides.lenght - 1) * lengthOfSlides) + 'px';
+        addCLone();
+        moving = true;
+        firstSlide.removeEventListener('trnsitioned', replaceToEnd);
+    }
+
+    carrosselContent.addEventListener('mousedown', seeMovement);
     
+    var initialX;
+    var initialPos;
+
+    function seeMovement(elemento){
+        initialX = elemento.clientX;
+        getInitialPos();
+        carrosselContent.addEventListener('mousemove', slightMove)
+        document.addEventListener('mouseup', moveBasedOnMouse);
+    } 
+
+
+    function slightMove(elemento){
+        if(moving){
+            var movingX = elemento.clientX;
+            var difference = initialX - movingX;
+            if(Math.abs(difference) < (lenghtOfSlides / 4)){
+                slightMoveSLides(difference);
+            }
+        }
+    }
+
+    function getInitialPos(){
+        var slides = document.querySelectorAll('.sledes');
+        var slidesArray = Array.prototype.slice.call(slides);
+        initialPos = [];
+        
+        slidesArray.forEach(funtion(elemento){
+            var left = Math.floor(parseInt(elemento.style.slice(0, -2)))
+        })
+    }
+
+    function slightMoveSlides(newX){
+        var slides = document.querySelectorAll('.slides');
+        var slidesArray = Array.prototype.slice.call(slides);
+
+        slidesArray.forEach(function(elemento, i){
+            var oldLeft = initialPos[i];
+            elemento
+            .style.left = (oldLeft + newX) + 'px';
+        }
+        )}
+    
+
+    function moveBasedOnMouse(elemento){
+        var finalX = elemento.clientX;
+        if(initialX - finalX > 0){
+            moveRight();
+        } else if(initialX - finalX < 0){
+            moveLeft();
+        }
+
+        document.removeEventListener('mouseup', moveBasedOnMouse);
+        carrosselContent.removeEventListener('mousemove', slightMove);
+    }
 
 </script>
 

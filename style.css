@@ -7,7 +7,7 @@
 }
 
 #header-site{
-    background-color: #6b1b1b;
+    background-color: #000000;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -72,6 +72,104 @@
     border-bottom: 1px solid rgb(255, 255, 255)
 }
 
+
+#parafrasear {
+    background-color: #fcc511;
+    height: 600px;
+    font-size: 50px;
+    display: flex;
+    padding-top: 10%;
+}
+
+#img-parafrasear {
+    height: 200px;
+    width: 300px;
+    justify-content: space-between;
+}
+
+#parafrasear img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+.slide{
+    width: max-content;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: left .4s cubic-bezier(.47, .13, .15, .89); 
+}
+
+.conteudo-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 14px;
+    box-shadow: 0px 3px 9px #0000005c;
+}
+
+.box-img-produto{
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+}
+
+.box-img-produto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+}
+
+
+
+.info-produto h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.info-produto span{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 18px;
+    color:#0f4907;
+}
+
+.cta-produto{
+    background-color: rgb(179, 199, 255);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+}
+
+.carrossel{
+    position: relative;
+    width: 50%;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.carrossel-content{
+    position: relative;
+    overflow: hidden;
+    transition: width .4s;
+    height: 100%;
+}
+
+
 @media (max-width: 525px) {
     #header-site #nav-header{
         height: auto;
@@ -83,7 +181,7 @@
         display: none;
         flex-direction: column;
         position: absolute;
-        background-color: rgb(0, 3, 201);
+        background-color: rgb(160, 123, 2);
         height: fit-content;
     }
     #header-site #nav-header ul.ativo{
