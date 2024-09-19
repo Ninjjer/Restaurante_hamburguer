@@ -126,11 +126,36 @@
 
 
 
+.sec-fran img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    margin: 0;
+}
 
 #img-fran{
-    height: 90px;
-    width: 50px;
+    height: 160px;
+    width: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
+
+#img-fran h4{
+    color: #fff;
+}
+
+.sec-fran {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    background-color: #000000;
+}
+
 
 #sec-carrossel img{
     width: 100%;
@@ -148,8 +173,6 @@
     transition: left .4s cubic-bezier(.47, .13, .15, .89);
 }
 
-
-
 .conteudo-produto{
     display: flex;
     flex-direction: column;
@@ -162,6 +185,9 @@
     box-shadow: 0px 3px 9px #0000005c;
 }
 
+.info-produto{
+    text-align: center;
+}
 .box-img-produto{
     width: 100%;
     max-width: 200px;
@@ -174,7 +200,6 @@
     object-fit: cover;
     object-position: center;
 }
-
 
 .info-produto h2{
     font-family: Arial, Helvetica, sans-serif;
@@ -201,10 +226,11 @@
 
 .carrossel{
     position: relative;
-    width: 43%;
+    width: 55%;
     height: 266px;
     margin: 0 auto;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .carrossel-content{
@@ -217,7 +243,7 @@
 .nav {
     position: absolute;
     z-index: 50;
-    top: 50%;
+    top: 40%;
     transform: translateY(50%);
 }
 

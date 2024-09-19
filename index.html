@@ -61,9 +61,7 @@
 
 
     <section id="sec-carrossel">
-        <div id="img-fran">
-        <img src="./img/selo_doutor_fran.jpg" alt="doutor-fran">
-        </div>
+        
 
         <div class="carrossel">
             <div class="nav nav-left">
@@ -93,7 +91,7 @@
                             <img src="./img/hambuguer2.png" alt="Sanduiche">
                         </div>
                         <div class="info-produto">
-                            <h2>sanduíche</h2>
+                            <h2>Sanduíche</h2>
                             <span>R$ 30,00 conto</span>
                         </div>
                         <div class="box-cta">
@@ -106,11 +104,11 @@
                 <div class="slide">
                     <div class="conteudo-produto">
                         <div class="box-img-produto">
-                            <img src="./img/hambuguer1.png" alt="burguer">
+                            <img src="./img/sanduiche-iche.png" alt="iche">
                         </div>
                         <div class="info-produto">
-                            <h2>Hamburguer</h2>
-                            <span>R$ 34,00 conto</span>
+                            <h2>Sanduíche Sonho</h2>
+                            <span>R$ 100,00 conto</span>
                         </div>
                         <div class="box-cta">
                             <button class="cta-produto">
@@ -122,11 +120,11 @@
                 <div class="slide">
                     <div class="conteudo-produto">
                         <div class="box-img-produto">
-                            <img src="./img/hambuguer1.png" alt="burguer">
+                            <img src="./img/cheese-burguer.png" alt="cheese">
                         </div>
                         <div class="info-produto">
-                            <h2>Hamburguer</h2>
-                            <span>R$ 34,00 conto</span>
+                            <h2>Cheese Burguer</h2>
+                            <span>R$ 5,00 conto</span>
                         </div>
                         <div class="box-cta">
                             <button class="cta-produto">
@@ -138,11 +136,11 @@
                 <div class="slide">
                     <div class="conteudo-produto">
                         <div class="box-img-produto">
-                            <img src="./img/hambuguer1.png" alt="burguer">
+                            <img src="./img/sanduiche-iche-iche.png" alt="iche-iche">
                         </div>
                         <div class="info-produto">
-                            <h2>Hamburguer</h2>
-                            <span>R$ 34,00 conto</span>
+                            <h2>Sanduiche-iche</h2>
+                            <span>R$ 60,00 conto</span>
                         </div>
                         <div class="box-cta">
                             <button class="cta-produto">
@@ -159,8 +157,12 @@
         </div>
     </section>
 
-
-
+    <section class="sec-fran">
+        <div id="img-fran">
+            <h4>Selo Doutor Fran de Qualidade</h4>        
+            <img src="./img/selo_doutor_fran.jpg" alt="doutor-fran">
+        </div>
+    </section>
 
 
 <!--  formulario 
@@ -182,10 +184,6 @@
 -->
 
 </body>
-
-
-
-
 
 <script>
     
@@ -259,7 +257,7 @@
         // Define quantos slides serão exibidos de acordo com o tamanho da tela
         function setScreenSize() {
             if (window.innerWidth >= 500) {
-                carrosselDisplaying = 3;
+                carrosselDisplaying = 4;
             } else if (window.innerWidth >= 300) {
                 carrosselDisplaying = 2;
             } else {
